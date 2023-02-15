@@ -8,7 +8,7 @@
 > ```git clone https://github.com/RetroPackets/NetPhantom```
 > ```cd NetPhantom```
 > ```pip install -r requirements.txt```
-> ```sudo python3 -r wlan0```
+> ```sudo python3 netphantom.py -r wlan0```
 
 ||Todo
 [Menu options at start for users to chose wether to use the default method or proxies]
