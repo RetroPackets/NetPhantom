@@ -1,0 +1,12 @@
+tor
+colorama
+subprocess
+json
+re
+speedtest
+string
+socket
+logging
+platform
+time
+requests
