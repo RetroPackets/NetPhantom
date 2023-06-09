@@ -55,11 +55,12 @@ def get_random_mac_address():
     uppercased_hexdigits = ''.join(set(string.hexdigits.upper()))
     mac = ""
     for i in range(6):
-        for j in range(2):
-            if i == 0:
-                mac += random.choice("02468ACE")
-            else:
-                mac += random.choice(uppercased_hexdigits)
+        for _ in range(2):
+            mac += (
+                random.choice("02468ACE")
+                if i == 0
+                else random.choice(uppercased_hexdigits)
+            )
         mac += ":"
     return mac.strip(":")
 
@@ -99,8 +100,8 @@ if __name__ == "__main__":
 
 
 
-hostname = socket.gethostname() 
-my_system = platform.uname()  
+hostname = socket.gethostname()
+my_system = platform.uname()
 IPAddr = socket.gethostbyname(hostname)
 
 os.system("service tor start")
@@ -112,7 +113,7 @@ os.system("anonsurf change ip >/dev/null 2>&1")
 se = int(input(f"{Fore.MAGENTA}How many seconds between IP changes{Fore.YELLOW}?{Fore.BLUE}:{Fore.RED} "))
 m = int(input(f"{Fore.MAGENTA}How many times should your IP change{Fore.YELLOW}?{Fore.BLUE}:{Fore.RED} "))
 
-for i in range(m):
+for _ in range(m):
     time.sleep(se)
     externalIP  = os.popen('curl -s ifconfig.me').readline()
     os.system("service tor reload")
